@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", showBackToTopBtn);
 
   const newsAPI = {
-    key: "pub_50318d4f428c6a13b40d30ace51c6a0ead5d8",
+    key: "pub_503183ee714642667e2a43f87cd1aef05a545",
     base: "https://newsdata.io/api/1/",
   };
 
