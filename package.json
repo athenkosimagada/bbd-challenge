@@ -1,0 +1,15 @@
+{
+  "name": "bbd-challenge",
+  "version": "1.0.0",
+  "description": "This is a personal portfolio website for Athenkosi Magada. It showcases my skills, experiences, and projects, and provides a way for potential collaborators or employers to get in touch with me.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

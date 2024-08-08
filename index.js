@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 document.addEventListener("DOMContentLoaded", () => {
   const menu = document.querySelector(".menu");
   const menuBtn = document.querySelector(".menu-btn");
@@ -19,12 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", showBackToTopBtn);
 
   const newsAPI = {
-    key: "3b4e0534105540ef88dba6c3b85e831f",
+    key: process.env.NEWS_API_KEY,
     base: "https://newsapi.org/v2/",
   };
 
   const weatherAPI = {
-    key: "243544165c25843de3dddf33eeef9f76",
+    key: process.env.WEATHER_API_KEY,
     base: "https://api.openweathermap.org/data/2.5/",
   };
 
