@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", showBackToTopBtn);
 
   const newsAPI = {
-    key: "pub_503183ee714642667e2a43f87cd1aef05a545",
-    base: "https://newsdata.io/api/1/",
+    key: "xElYqPr2L8NpjZuCcP0Lh2oxqk6wIInGYMpF5CuJ",
+    base: "https://api.thenewsapi.com/v1/news/top",
   };
 
   const weatherAPI = {
@@ -32,30 +32,33 @@ document.addEventListener("DOMContentLoaded", () => {
   newsCard.innerHTML = "Getting latest news...";
 
   function getLatestNews() {
-    const url = `${newsAPI.base}latest?apikey=${newsAPI.key}&country=za`;
-    console.log(url);
+    const url = `${newsAPI.base}?api_token=${newsAPI.key}&language=en&location=za&limit=1`;
     fetch(url)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
+        data = data.data;
         console.log(data);
-        console.log(data.results[0].image_url);
+        console.log(data[0].title);
+        console.log(data[0].image_url);
+        console.log(data[0].url);
+        console.log(data[0].published_at);
 
         newsCard.innerHTML = `
         <img src="${
-          data.results[0].image_url
-            ? data.results[0].image_url
+          data[0].image_url
+            ? data[0].image_url
             : "https://plus.unsplash.com/premium_photo-1688561384438-bfa9273e2c00?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         }" alt="news">
-        <h3 class="headline">${data.results[0].title}</h3>
+        <h3 class="headline">${data[0].title}</h3>
         <div class="content">
             <p class="date"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
-              </svg><span>${data.results[0].pubDate}</span>
+              </svg><span>${data[0].published_at.split("T")[0].split("-").reverse().join("/")}</span>
             </p>
             <a class="read-more" href="${
-              data.results[0].link
+              data[0].url
             }" target="_blank">READ MORE</a>
         </div>
         `;
