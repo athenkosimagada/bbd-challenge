@@ -62,6 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }" target="_blank">READ MORE</a>
         </div>
         `;
+      }).catch(() => {
+        newsCard.innerHTML = `An error occured. Please try again later.`;
       });
   }
 
